@@ -43,7 +43,9 @@
                         type="checkbox" name="remember" id="remember">
                     <label class="ml-2 mt-2 font-bold text-xs inline relative bottom-[0.3rem]"
                         for="remember">{{ __('login.remember_device') }}</label>
-                    <p class="ml-auto text-xs mt-1 text-right text-blue-600 font-semibold"><a>Forgot password?</a></p>
+                    <p class="ml-auto text-xs mt-1 text-right text-blue-600 font-bold hover:cursor-pointer">
+                        <a>Forgot password?</a>
+                    </p>
                 </div>
 
             </div>
