@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="min-h-screen px-3">
+    <div class="min-h-screen px-4">
 
         <img class="h-8 mt-6" src="{{ asset('images/logo.png') }}" />
         <div class="pt-8 ">
@@ -46,6 +46,15 @@
                     <p class="ml-auto text-xs mt-1 text-right text-blue-600 font-bold hover:cursor-pointer">
                         <a>Forgot password?</a>
                     </p>
+                </div>
+
+                <x-button type="submit" text="{{ __('login.button_login') }}"></x-button>
+
+                <div class="mt-5 flex justify-center">
+                    <div>
+                        <p class="text-gray-500 text-xs inline">{{ __('login.dont_have_account') }}</p>
+                        <p class="inline text-xs font-bold hover:cursor-pointer"><a>{{ __('login.sign_up') }}</a></p>
+                    </div>
                 </div>
 
             </div>
