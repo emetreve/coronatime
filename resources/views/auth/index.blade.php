@@ -1,8 +1,8 @@
 <x-layout>
     <div class="flex">
-        <div class="min-h-screen px-4 flex-1 md:min-h-full md:pt-32 md:pl-52">
+        <div class="min-h-screen px-4 flex-1 lg:min-h-full lg:pt-32 lg:pl-52">
 
-            <div class=" md:w-2/5 md:scale-125">
+            <div class="lg:w-2/5 lg:scale-125">
 
                 <img class="h-14 pt-6" src="{{ asset('images/logo.png') }}" />
                 <div class="pt-10 ">
@@ -66,8 +66,8 @@
             </div>
         </div>
 
-        <div class="hidden md:block flex-none h-screen">
-            <img class="hidden md:block w-full h-full" src="{{ asset('images/vaccine.png') }}" />
+        <div class="hidden lg:block flex-none h-screen">
+            <img class="hidden lg:block w-full h-full" src="{{ asset('images/vaccine.png') }}" />
         </div>
     </div>
 </x-layout>
