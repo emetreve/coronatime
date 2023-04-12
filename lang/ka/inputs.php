@@ -3,6 +3,7 @@
 return [
 	'username'                   => 'მომხმარებლის სახელი',
 	'username_placeholder'       => 'შეიყვანეთ უნიკალური სახელი ან ელფოსტა',
+	'username_validation'        => 'სახელი უნდა იყოს უნიკალური, მინიმუმ 3 სიმბოლო',
 	'password'                   => 'პაროლი',
 	'password_placeholder'       => 'შეიყვანეთ პაროლი',
 	'email'                      => 'იმეილი',

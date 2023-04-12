@@ -21,10 +21,13 @@
                                 class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="text" name="username" id="username"
                                 placeholder="{{ __('inputs.username_placeholder') }}">
-                            <div class="">
-                                @error('username')
+                            <div class="mt-1">
+                                @if ($errors->has('username'))
                                     <p class="text-red-500 text-xs">{{ $message }}</p>
-                                @enderror
+                                @else
+                                    <p class="text-gray-400 text-xs">{{ __('inputs.username_validation') }}</p>
+                                @endif
+
                             </div>
                         </div>
 

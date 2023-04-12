@@ -3,6 +3,7 @@
 return [
 	'username'                   => 'Username',
 	'username_placeholder'       => 'Enter unique username or email',
+	'username_validation'        => 'Username should be unique, min 3 symbols',
 	'password'                   => 'Password',
 	'password_placeholder'       => 'Fill in password',
 	'email'                      => 'Email',
