@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'auth.index')->middleware('guest')->name('login.index');
+Route::view('/signup', 'auth.signup')->middleware('guest')->name('signup.index');
