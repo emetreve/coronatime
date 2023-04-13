@@ -19,12 +19,16 @@
                         <div>
                             <label class="block font-bold text-xs" for="name">{{ __('inputs.username') }}</label>
                             <input
-                                class=" {{ $errors->has('name') ? 'border-red-600' : (old('name') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border  py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
+                                class="{{ $errors->has('name') ? 'border-red-600' : (old('name') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border  py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="text" name="name" id="name" value="{{ old('name') }}"
                                 placeholder="{{ __('inputs.username_placeholder') }}">
-                            <div class="mt-1">
+                            <div class="mt-1 h-5">
                                 @if ($errors->has('name'))
-                                    <p class="text-red-600 text-xs">{{ $errors->first('name') }}</p>
+                                    <div>
+                                        <img class="inline h-4" src="{{ asset('images/error.png') }}" />
+                                        <p class=" inline-block ml-1 text-red-600 text-xs">{{ $errors->first('name') }}
+                                        </p>
+                                    </div>
                                 @else
                                     <p class="text-gray-400 text-xs">{{ __('inputs.username_validation') }}</p>
                                 @endif
@@ -35,12 +39,15 @@
                         <div class="mt-4">
                             <label class="block font-bold text-xs" for="email">{{ __('inputs.email') }}</label>
                             <input
-                                class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
+                                class="{{ $errors->has('email') ? 'border-red-600' : (old('email') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="email" name="email" id="email" value="{{ old('email') }}"
                                 placeholder="{{ __('inputs.email_placeholder') }}">
-                            <div class="">
+                            <div class="h-5">
                                 @error('email')
-                                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                                    <div>
+                                        <img class="inline h-4" src="{{ asset('images/error.png') }}" />
+                                        <p class="inline-block ml-1 text-red-600 text-xs">{{ $message }}</p>
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -48,12 +55,15 @@
                         <div class="mt-4">
                             <label class="block font-bold text-xs" for="password">{{ __('inputs.password') }}</label>
                             <input
-                                class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
+                                class="{{ $errors->has('password') ? 'border-red-600' : (old('password') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border  py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="password" name="password" id="password"
                                 placeholder="{{ __('inputs.password_placeholder') }}">
-                            <div class="">
+                            <div class="h-5">
                                 @error('password')
-                                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                                    <div>
+                                        <img class="inline h-4" src="{{ asset('images/error.png') }}" />
+                                        <p class="inline-block ml-1 text-red-600 text-xs">{{ $message }}</p>
+                                    </div>
                                 @enderror
                             </div>
                         </div>
@@ -62,12 +72,15 @@
                             <label class="block font-bold text-xs"
                                 for="password_confirmation">{{ __('inputs.repeat_password') }}</label>
                             <input
-                                class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
+                                class="{{ $errors->has('password_confirmation') ? 'border-red-600' : (old('password_confirmation') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border  py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="password" name="password_confirmation" id="password_confirmation"
                                 placeholder="{{ __('inputs.repeat_password_placeholder') }}">
-                            <div class="">
+                            <div class="h-5">
                                 @error('password_confirmation')
-                                    <p class="text-red-600 text-xs">{{ $message }}</p>
+                                    <div>
+                                        <img class="inline h-4" src="{{ asset('images/error.png') }}" />
+                                        <p class="inline-block ml-1 text-red-600 text-xs">{{ $message }}</p>
+                                    </div>
                                 @enderror
                             </div>
                         </div>
