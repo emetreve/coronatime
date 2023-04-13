@@ -18,7 +18,6 @@ class SignupUserRequest extends FormRequest
 			'email'                 => 'required|unique:users,email',
 			'password'              => 'required|min:3|confirmed',
 			'password_confirmation' => 'required',
-			'remember'              => '',
 		];
 	}
 }
