@@ -21,4 +21,16 @@ class AuthController extends Controller
 
 		return redirect(route('verification.notice'));
 	}
+
+	public function login()
+	{
+		// $credentials = $request->validated();
+
+		// if (auth()->attempt($credentials))
+		// {
+		// 	return redirect(route('dashboard'))->with('success', __('flash-messages.welcome_back'));
+		// }
+
+		// return back()->withInput()->withErrors(['email' => __('auth.failed')]);
+	}
 }
