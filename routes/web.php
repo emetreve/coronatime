@@ -24,4 +24,4 @@ Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
 Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::view('/dashboard', 'admin.show')->middleware('verified')->name('dashboard');
+Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name('dashboard');
