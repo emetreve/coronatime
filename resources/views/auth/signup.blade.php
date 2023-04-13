@@ -12,19 +12,23 @@
 
                 </div>
 
-                <form class="mt-5">
+                <form class="mt-5" method="POST" action="{{ route('signup') }}" novalidate>
+                    @csrf
                     <div>
 
                         <div>
-                            <label class="block font-bold text-xs" for="username">{{ __('inputs.username') }}</label>
+                            <label class="block font-bold text-xs" for="name">{{ __('inputs.username') }}</label>
                             <input
                                 class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
-                                type="text" name="username" id="username"
+                                type="text" name="name" id="name" value="{{ old('name') }}"
                                 placeholder="{{ __('inputs.username_placeholder') }}">
-                            <div class="">
-                                @error('username')
-                                    <p class="text-red-500 text-xs">{{ $message }}</p>
-                                @enderror
+                            <div class="mt-1">
+                                @if ($errors->has('name'))
+                                    <p class="text-red-500 text-xs">{{ $errors->first('name') }}</p>
+                                @else
+                                    <p class="text-gray-400 text-xs">{{ __('inputs.username_validation') }}</p>
+                                @endif
+
                             </div>
                         </div>
 
@@ -32,7 +36,7 @@
                             <label class="block font-bold text-xs" for="email">{{ __('inputs.email') }}</label>
                             <input
                                 class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
-                                type="email" name="email" id="email"
+                                type="email" name="email" id="email" value="{{ old('email') }}"
                                 placeholder="{{ __('inputs.email_placeholder') }}">
                             <div class="">
                                 @error('email')
@@ -54,25 +58,18 @@
                             </div>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-4 mb-4">
                             <label class="block font-bold text-xs"
-                                for="repeatpassword">{{ __('inputs.repeat_password') }}</label>
+                                for="password_confirmation">{{ __('inputs.repeat_password') }}</label>
                             <input
                                 class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
-                                type="password" name="repeatpassword" id="repeatpassword"
+                                type="password" name="password_confirmation" id="password_confirmation"
                                 placeholder="{{ __('inputs.repeat_password_placeholder') }}">
                             <div class="">
-                                @error('repeatpassword')
+                                @error('password_confirmation')
                                     <p class="text-red-500 text-xs">{{ $message }}</p>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="mt-4 relative flex">
-                            <input class="w-5 h-5 rounded border-gray-200 text-green-500" type="checkbox"
-                                name="remember" id="remember">
-                            <label class="ml-2 mt-2 font-bold text-xs inline relative bottom-[0.3rem]"
-                                for="remember">{{ __('signup.remember_device') }}</label>
                         </div>
 
                         <x-button type="submit" text="{{ __('signup.button_signup') }}"></x-button>
@@ -81,7 +78,7 @@
                             <div>
                                 <p class="text-gray-500 text-xs inline">{{ __('signup.already_have_account') }}</p>
                                 <p class="inline text-xs font-bold hover:cursor-pointer"><a
-                                        href="{{ route('signup.index') }}">{{ __('signup.sign_in') }}</a></p>
+                                        href="{{ route('login.index') }}">{{ __('signup.sign_in') }}</a></p>
                             </div>
                         </div>
 
