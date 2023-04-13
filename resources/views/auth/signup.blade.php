@@ -19,12 +19,12 @@
                         <div>
                             <label class="block font-bold text-xs" for="name">{{ __('inputs.username') }}</label>
                             <input
-                                class="block mt-1 border border-gray-200 py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
+                                class=" {{ $errors->has('name') ? 'border-red-600' : (old('name') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border  py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                                 type="text" name="name" id="name" value="{{ old('name') }}"
                                 placeholder="{{ __('inputs.username_placeholder') }}">
                             <div class="mt-1">
                                 @if ($errors->has('name'))
-                                    <p class="text-red-500 text-xs">{{ $errors->first('name') }}</p>
+                                    <p class="text-red-600 text-xs">{{ $errors->first('name') }}</p>
                                 @else
                                     <p class="text-gray-400 text-xs">{{ __('inputs.username_validation') }}</p>
                                 @endif
@@ -40,7 +40,7 @@
                                 placeholder="{{ __('inputs.email_placeholder') }}">
                             <div class="">
                                 @error('email')
-                                    <p class="text-red-500 text-xs">{{ $message }}</p>
+                                    <p class="text-red-600 text-xs">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                                 placeholder="{{ __('inputs.password_placeholder') }}">
                             <div class="">
                                 @error('password')
-                                    <p class="text-red-500 text-xs">{{ $message }}</p>
+                                    <p class="text-red-600 text-xs">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
@@ -67,7 +67,7 @@
                                 placeholder="{{ __('inputs.repeat_password_placeholder') }}">
                             <div class="">
                                 @error('password_confirmation')
-                                    <p class="text-red-500 text-xs">{{ $message }}</p>
+                                    <p class="text-red-600 text-xs">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>

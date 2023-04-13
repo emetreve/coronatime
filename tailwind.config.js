@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "buttongreen":"#0FBA68",
+        "validgreen":"#0FBA68",
       },
     },
   },
