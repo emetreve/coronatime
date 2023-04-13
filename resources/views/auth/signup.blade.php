@@ -85,7 +85,7 @@
                             <div>
                                 <p class="text-gray-500 text-xs inline">{{ __('signup.already_have_account') }}</p>
                                 <p class="inline text-xs font-bold hover:cursor-pointer"><a
-                                        href="{{ route('signup.index') }}">{{ __('signup.sign_in') }}</a></p>
+                                        href="{{ route('login.index') }}">{{ __('signup.sign_in') }}</a></p>
                             </div>
                         </div>
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SignupUserRequest;
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -16,6 +18,10 @@ class AuthController extends Controller
 
 		$user = User::create($credentials);
 
-		return redirect(route('login.index'))->with('success', 'Your account has been created.');
+		Auth::loginUsingId($user->id);
+
+		event(new Registered($user));
+
+		return redirect(route('verification.notice'));
 	}
 }

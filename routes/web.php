@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\EmailVerificationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'auth.index')->middleware('guest')->name('login.index');
 Route::view('/signup', 'auth.signup')->middleware('guest')->name('signup.index');
 
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup')->middleware('guest');
+Route::post('/signup', [AuthController::class, 'signup'])->middleware('guest')->name('signup');
 
-// Auth::routes(['verify'=>true]);
+Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
+Route::get('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::view('/dashboard', 'admin.show')->middleware('verified')->name('dashboard');
