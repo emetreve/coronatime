@@ -12,12 +12,9 @@ class AuthController extends Controller
 	public function signup(SignupUserRequest $request)
 	{
 		$credentials = $request->validated();
-
-		$rememberDevice = isset($request['remember']);
 		$credentials['password'] = bcrypt($credentials['password']);
 
 		$user = User::create($credentials);
-
 		Auth::loginUsingId($user->id);
 
 		event(new Registered($user));
