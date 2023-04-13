@@ -58,7 +58,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-4 mb-4">
                             <label class="block font-bold text-xs"
                                 for="password_confirmation">{{ __('inputs.repeat_password') }}</label>
                             <input
@@ -70,13 +70,6 @@
                                     <p class="text-red-500 text-xs">{{ $message }}</p>
                                 @enderror
                             </div>
-                        </div>
-
-                        <div class="mt-4 relative flex">
-                            <input class="w-5 h-5 rounded border-gray-200 text-green-500" type="checkbox"
-                                name="remember" id="remember" value="{{ old('remember') }}">
-                            <label class="ml-2 mt-2 font-bold text-xs inline relative bottom-[0.3rem]"
-                                for="remember">{{ __('signup.remember_device') }}</label>
                         </div>
 
                         <x-button type="submit" text="{{ __('signup.button_signup') }}"></x-button>
