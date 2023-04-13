@@ -11,7 +11,8 @@
 
                 </div>
 
-                <form class="mt-5">
+                <form class="mt-5" novalidate>
+                    @csrf
                     <div>
 
                         <div>
