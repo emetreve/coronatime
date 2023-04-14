@@ -11,7 +11,8 @@
 
                 </div>
 
-                <form class="mt-5">
+                <form class="mt-5" novalidate>
+                    @csrf
                     <div>
 
                         <div>
@@ -46,7 +47,7 @@
                             <label class="ml-2 mt-2 font-bold text-xs inline relative bottom-[0.3rem]"
                                 for="remember">{{ __('login.remember_device') }}</label>
                             <p class="ml-auto text-xs mt-1 text-right text-blue-600 font-bold hover:cursor-pointer">
-                                <a>Forgot password?</a>
+                                <a>{{ __('login.forgot_password') }}</a>
                             </p>
                         </div>
 

@@ -19,6 +19,7 @@ Route::view('/', 'auth.index')->middleware('guest')->name('login.index');
 Route::view('/signup', 'auth.signup')->middleware('guest')->name('signup.index');
 
 Route::post('/signup', [AuthController::class, 'signup'])->middleware('guest')->name('signup');
+Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('login');
 
 Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
 Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');

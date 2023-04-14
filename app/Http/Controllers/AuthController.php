@@ -21,4 +21,8 @@ class AuthController extends Controller
 
 		return redirect(route('verification.notice'));
 	}
+
+	public function login()
+	{
+	}
 }
