@@ -14,9 +14,18 @@ class LoginUserRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'password'          => 'required',
-			'username_or_email' => 'required|min:3',
-			'remember'          => 'boolean|nullable',
+			'password' => 'required',
+			'username' => 'required|min:3',
+			'remember' => 'boolean|nullable',
 		];
+	}
+
+	public function validationData()
+	{
+		$this->merge([
+			'remember' => (bool) $this->input('remember'),
+		]);
+
+		return parent::validationData();
 	}
 }

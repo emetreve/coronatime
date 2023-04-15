@@ -49,6 +49,7 @@ return [
 	*/
 
 	'attributes' => [
+		'username'              => 'სახელი',
 		'name'                  => 'სახელი',
 		'email'                 => 'იმეილი',
 		'password'              => 'პაროლი',

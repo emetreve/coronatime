@@ -26,3 +26,5 @@ Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('ver
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.reset.index');
