@@ -50,6 +50,7 @@ return [
 
 	'attributes' => [
 		'username'              => 'სახელი',
+		'name'                  => 'სახელი',
 		'email'                 => 'იმეილი',
 		'password'              => 'პაროლი',
 		'password_confirmation' => 'გამეორებული პაროლი',
