@@ -49,7 +49,7 @@ return [
 	*/
 
 	'attributes' => [
-		'name'                  => 'სახელი',
+		'username'              => 'სახელი',
 		'email'                 => 'იმეილი',
 		'password'              => 'პაროლი',
 		'password_confirmation' => 'გამეორებული პაროლი',
