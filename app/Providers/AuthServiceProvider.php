@@ -27,7 +27,8 @@ class AuthServiceProvider extends ServiceProvider
 			return (new MailMessage)
 				->subject(__('email-verification.email_subject'))
 				->line(__('email-verification.email_line'))
-				->action(__('email-verification.email_action'), $url);
+				->action(__('email-verification.email_action'), $url)
+				->view('emails.verify_email', ['url'=>$url]);
 		});
 	}
 }
