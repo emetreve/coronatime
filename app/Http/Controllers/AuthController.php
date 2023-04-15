@@ -34,15 +34,16 @@ class AuthController extends Controller
 		$user = User::where('name', $attributes['username'])
 		->orWhere('email', $attributes['username'])->first();
 
+		$authWithName = auth()->attempt(['name' => $attributes['username'], 'password' => $attributes['password']], $rememberMe);
+		$authWithEmail = auth()->attempt(['email' => $attributes['username'], 'password' => $attributes['password']], $rememberMe);
+
 		if ($user && !$user->email_verified_at) {
-			throw ValidationException::withMessages([
-				'username' => [__('auth.not_verified')],
-			]);
+			if ($authWithName || $authWithEmail) {
+				return redirect(route('verification.notice'));
+			}
 		}
 
-		if (auth()->attempt(['name' => $attributes['username'], 'password' => $attributes['password']], $rememberMe)) {
-			return redirect(route('dashboard'));
-		} elseif (auth()->attempt(['email' => $attributes['username'], 'password' => $attributes['password']], $rememberMe)) {
+		if ($authWithName || $authWithEmail) {
 			return redirect(route('dashboard'));
 		} else {
 			throw ValidationException::withMessages([
