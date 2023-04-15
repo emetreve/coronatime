@@ -25,7 +25,7 @@ class AuthController extends Controller
 		return redirect(route('verification.notice'));
 	}
 
-	public function login(LoginUserRequest $request)
+	public function login(LoginUserRequest $request): RedirectResponse
 	{
 		$attributes = $request->validated();
 
