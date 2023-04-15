@@ -39,7 +39,6 @@ class AuthController extends Controller
 
 		if ($user && !$user->email_verified_at) {
 			if ($authWithName || $authWithEmail) {
-				Auth::loginUsingId($user->id);
 				return redirect(route('verification.notice'));
 			}
 		}
