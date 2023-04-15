@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Verify Email</title>
 </head>
 
