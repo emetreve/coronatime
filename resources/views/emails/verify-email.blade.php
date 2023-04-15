@@ -6,7 +6,7 @@
 </head>
 
 <div style="height: 100%; max-width:500px; margin: 50px auto; text-align:center">
-    <img src="{{ asset('images/confirm_email.png') }}" alt="dashboard snapshot" style="max-width: 90%; margin: auto;">
+    <img src="{{ asset('images/confirm-email.png') }}" alt="dashboard snapshot" style="max-width: 90%; margin: auto;">
 
     <div>
         <h1 style="color: #010414; font-size: 1.5rem; font-weight: bold; text-align: center; margin-top: 1.5rem;">
