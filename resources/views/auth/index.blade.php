@@ -11,7 +11,7 @@
 
                 </div>
 
-                <form class="mt-5" novalidate>
+                <form class="mt-5" novalidate method="POST" action="{{ route('login') }}">
                     @csrf
                     <div>
 
@@ -65,6 +65,10 @@
                 </form>
             </div>
         </div>
+
+        @if ($errors)
+            {{ dd($errors) }}
+        @endif
 
         <div class="hidden lg:block flex-none h-screen">
             <img class="hidden lg:block w-full h-full" src="{{ asset('images/vaccine.png') }}" />
