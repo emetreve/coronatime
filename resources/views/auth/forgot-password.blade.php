@@ -1,7 +1,7 @@
 <x-layout>
     <div class="min-h-screen relative">
         <div class="pt-2 top-0 left-0 w-fullflex flex-col items-center pb-16 lg:pb-32">
-            <img class="h-14 px-4 pt-6 lg:h-20 lg:mx-auto" src="{{ asset('images/logo.png') }}" />
+            <img class="h-14 px-4 pt-6 lg:h-20 lg:mx-auto" src="{{ asset('images/logo.png') }}" alt="logo" />
 
             <div class="px-4 w-full flex justify-center items-center">
                 <h1 class="font-bold text-[1.4rem] pt-10 lg:pt-32 lg:text-[1.8rem]">{{ __('password-reset.reset') }}</h1>
