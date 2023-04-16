@@ -9,7 +9,7 @@ class PasswordController extends Controller
 {
 	public function requestChange(ForgotPasswordRequest $request)
 	{
-		$request->validate();
+		$request->validated();
 
 		$status = Password::sendResetLink(
 			$request->only('email')
