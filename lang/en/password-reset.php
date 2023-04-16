@@ -12,5 +12,10 @@ return [
 	|
 	*/
 
-	'reset'=> 'Reset Password',
+	'reset'               => 'Reset Password',
+	'sent_email'          => 'We have sent you an email to update your password',
+	'updated_successfully'=> 'Your password has been updeted successfully',
+	'email_subject'       => 'Recover password',
+	'email_line'          => 'click this button to recover a password',
+	'email_action'        => 'RECOVER PASSWORD',
 ];

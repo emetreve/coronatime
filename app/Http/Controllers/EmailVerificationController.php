@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 
 class EmailVerificationController extends Controller
 {
-	public function verify(EmailVerificationRequest $request)
+	public function verify(EmailVerificationRequest $request): RedirectResponse
 	{
 		$request->fulfill();
 
