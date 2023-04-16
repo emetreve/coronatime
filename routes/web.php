@@ -4,7 +4,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,11 +30,6 @@ Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name(
 
 Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
 Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->middleware('guest')->name('password.email');
-
 Route::post('/reset-password', [PasswordController::class, 'reset'])->middleware('guest')->name('password.update');
-
-Route::get('/reset-password/{token}', function (Request $request, string $token) {
-	return view('auth.reset-password', ['token' => $token, 'email'=>$request->query('email')]);
-})->middleware('guest')->name('password.reset');
-
+Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');

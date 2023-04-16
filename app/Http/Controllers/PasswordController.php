@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class PasswordController extends Controller
 {
@@ -42,5 +43,11 @@ class PasswordController extends Controller
 		return $status === Password::PASSWORD_RESET
 			? redirect()->route('password.success')->with('status', __($status))
 			: back()->withErrors(['password' => [__($status)]]);
+	}
+
+	public function showResetPasswordForm(Request $request, string $token)
+	{
+		$email = $request->query('email');
+		return view('auth.reset-password', ['token' => $token, 'email' => $email]);
 	}
 }
