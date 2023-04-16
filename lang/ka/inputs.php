@@ -10,4 +10,5 @@ return [
 	'email_placeholder'          => 'შეიყვანეთ იმეილი',
 	'repeat_password'            => 'გაიმეორეთ პაროლი',
 	'repeat_password_placeholder'=> 'გაიმეორეთ პაროლი',
+	'password_new'               => 'ახალი პაროლი',
 ];

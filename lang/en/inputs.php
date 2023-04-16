@@ -10,4 +10,5 @@ return [
 	'email_placeholder'          => 'Enter your email',
 	'repeat_password'            => 'Repeat password',
 	'repeat_password_placeholder'=> 'Repeat password',
+	'password_new'               => 'New password',
 ];

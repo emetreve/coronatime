@@ -14,7 +14,7 @@
                 <input hidden name="email" id="email" value="{{ $email }}" />
 
                 <div class="mt-4">
-                    <label class="block font-bold text-xs" for="password">{{ __('inputs.password') }}</label>
+                    <label class="block font-bold text-xs" for="password">{{ __('inputs.password_new') }}</label>
                     <input
                         class="{{ $errors->has('password') ? 'border-red-600' : (old('password') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
                         type="password" name="password" id="password"
