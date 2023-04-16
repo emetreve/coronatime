@@ -31,5 +31,6 @@ Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name(
 Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
 Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->middleware('guest')->name('password.email');
 Route::post('/reset-password', [PasswordController::class, 'reset'])->middleware('guest')->name('password.update');
+Route::view('/password-notice', 'auth.password-notice')->middleware('guest')->name('password.notice');
 Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');

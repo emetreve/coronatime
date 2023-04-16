@@ -12,5 +12,6 @@ return [
 	|
 	*/
 
-	'reset'=> 'Reset Password',
+	'reset'     => 'Reset Password',
+	'sent_email'=> 'We have sent you an email to update your password',
 ];

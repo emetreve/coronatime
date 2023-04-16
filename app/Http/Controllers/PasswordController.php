@@ -23,7 +23,7 @@ class PasswordController extends Controller
 		);
 
 		return $status === Password::RESET_LINK_SENT
-			? back()->with(['status' => __($status)])
+			? redirect(route('password.notice'))->with(['status' => __($status)])
 			: back()->withErrors(['email' => __($status)]);
 	}
 
