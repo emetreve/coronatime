@@ -11,9 +11,17 @@
                 <p class="inline lg:text-lg">By country</p>
             </div>
 
-            {{-- <x-new-cases />
-    <x-recovered />
-    <x-death /> --}}
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                <div class="lg:col-span-1 col-span-3 bg-slate-600">
+                    hello1
+                </div>
+                <div class="lg:col-span-1 col-span-1 bg-orange-200">
+                    hello2
+                </div>
+                <div class="lg:col-span-1 col-span-1 bg-yellow-300">
+                    hello3
+                </div>
+            </div>
         </div>
     </div>
 </x-layout>
