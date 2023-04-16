@@ -7,7 +7,8 @@
                 <h1 class="font-bold text-[1.4rem] pt-10 lg:pt-32 lg:text-[1.8rem]">{{ __('password-reset.reset') }}</h1>
             </div>
 
-            <form novalidate method="POST" action="{{ route('login') }}" class="px-4 pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
+            <form novalidate method="POST" action="{{ route('password.email') }}"
+                class="px-4 pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
                 @csrf
                 <div class="mt-4">
                     <label class="relative block font-bold text-xs" for="email">{{ __('inputs.email') }}
@@ -28,13 +29,11 @@
                         @enderror
                     </div>
                 </div>
+
+                <x-button text="{{ __('password-reset.reset') }}" />
             </form>
 
-            <div class="w-full px-4 absolute bottom-5 lg:w-1/4 lg:static lg:pt-6  lg:mx-auto">
-                <a href="{{ route('login.index') }}">
-                    <x-button text="{{ __('password-reset.reset') }}" />
-                </a>
-            </div>
+
         </div>
 
 

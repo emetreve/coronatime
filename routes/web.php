@@ -3,6 +3,11 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +32,44 @@ Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 've
 
 Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.reset.index');
+Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
+
+Route::post('/forgot-password', function (Request $request) {
+	$request->validate(['email' => 'required|email']);
+
+	$status = Password::sendResetLink(
+		$request->only('email')
+	);
+
+	return $status === Password::RESET_LINK_SENT
+				? back()->with(['status' => __($status)])
+				: back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+Route::post('/reset-password', function (Request $request) {
+	$request->validate([
+		'token'    => 'required',
+		'password' => 'required|min:3|confirmed',
+	]);
+
+	$status = Password::reset(
+		$request->only('email', 'password', 'password_confirmation', 'token'),
+		function (User $user, string $password) {
+			$user->forceFill([
+				'password' => Hash::make($password),
+			])->setRememberToken(Str::random(60));
+
+			$user->save();
+		}
+	);
+
+	return $status === Password::PASSWORD_RESET
+				? redirect()->route('password.success')->with('status', __($status))
+				: back()->withErrors(['password' => [__($status)]]);
+})->middleware('guest')->name('password.update');
+
+Route::get('/reset-password/{token}', function (Request $request, string $token) {
+	return view('auth.reset-password', ['token' => $token, 'email'=>$request->query('email')]);
+})->middleware('guest')->name('password.reset');
+
+Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');

@@ -60,7 +60,7 @@
                                 name="remember" id="remember">
                             <label class="ml-2 mt-2 font-bold text-xs inline relative bottom-[0.3rem]"
                                 for="remember">{{ __('login.remember_device') }}</label>
-                            <a href="{{ route('password.reset.index') }}"
+                            <a href="{{ route('password.request') }}"
                                 class="ml-auto text-xs mt-1 text-right text-blue-600 font-bold hover:cursor-pointer">
                                 <p>{{ __('login.forgot_password') }}</p>
                             </a>
