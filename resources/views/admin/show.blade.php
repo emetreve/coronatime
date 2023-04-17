@@ -12,13 +12,16 @@
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-3 pt-6 pr-4 lg:pr-28">
-                <div class="lg:col-span-1 col-span-3 bg-slate-600 h-48 mb-4 lg:mr-6 lg:h-80">
-                    hello1
+                <div
+                    class="flex flex-col items-center justify-center lg:col-span-1 col-span-3 h-48 mb-4 bg-blue-opacity-8 rounded-2xl lg:mr-6 lg:h-80">
+                    <img class="h-20" src="{{ asset('images/new-cases.png') }}" alt="logo" />
+                    <p>New cases</p>
+                    <h1>715,523</h1>
                 </div>
-                <div class="lg:col-span-1 col-span-1 bg-orange-200 h-52 mr-2 lg:mr-3 lg:h-80">
+                <div class="lg:col-span-1 col-span-1 bg-green-opacity-8 rounded-2xl h-52 mr-2 lg:mr-3 lg:h-80">
                     hello2
                 </div>
-                <div class="lg:col-span-1 col-span-1 bg-yellow-300 h-52 ml-2 lg:mr-3 lg:h-80">
+                <div class="lg:col-span-1 col-span-1 bg-yellow-opacity-8 rounded-2xl h-52 ml-2 lg:mr-3 lg:h-80">
                     hello3
                 </div>
             </div>
