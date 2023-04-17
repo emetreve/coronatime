@@ -14,15 +14,22 @@
             <div class="grid grid-cols-2 lg:grid-cols-3 pt-6 pr-4 lg:pr-28">
                 <div
                     class="flex flex-col items-center justify-center lg:col-span-1 col-span-3 h-48 mb-4 bg-blue-opacity-8 rounded-2xl lg:mr-6 lg:h-80">
-                    <img class="h-20" src="{{ asset('images/new-cases.png') }}" alt="logo" />
-                    <p>New cases</p>
-                    <h1>715,523</h1>
+                    <img class="h-16 lg:scale-150 lg:mb-5" src="{{ asset('images/new-cases.png') }}" alt="logo" />
+                    <p class="pt-2 lg:scale-150 lg:mb-6">New cases</p>
+                    <h1 class="text-primaryblue font-extrabold text-2xl pt-3 lg:text-3xl lg:scale-150 ">715,523</h1>
                 </div>
-                <div class="lg:col-span-1 col-span-1 bg-green-opacity-8 rounded-2xl h-52 mr-2 lg:mr-3 lg:h-80">
-                    hello2
+                <div
+                    class="flex flex-col items-center justify-center lg:col-span-1 col-span-1 bg-green-opacity-8 rounded-2xl h-48 mr-2 lg:mr-3 lg:h-80">
+                    <img class="h-14 pl-1 lg:scale-150 lg:mb-5" src="{{ asset('images/recovered.png') }}"
+                        alt="logo" />
+                    <p class="pt-2 lg:scale-150 lg:mb-6">Recovered</p>
+                    <h1 class="text-primarygreen font-extrabold text-2xl pt-3 lg:text-3xl lg:scale-150">82,332</h1>
                 </div>
-                <div class="lg:col-span-1 col-span-1 bg-yellow-opacity-8 rounded-2xl h-52 ml-2 lg:mr-3 lg:h-80">
-                    hello3
+                <div
+                    class="flex flex-col items-center justify-center lg:col-span-1 col-span-1 bg-yellow-opacity-8 rounded-2xl h-48 ml-2 lg:mr-3 lg:h-80">
+                    <img class=" h-14 pl-1 lg:scale-150 lg:mb-5" src="{{ asset('images/death.png') }}" alt="logo" />
+                    <p class="pt-2 lg:scale-150 lg:mb-6">Death</p>
+                    <h1 class="text-primaryyellow font-extrabold text-2xl pt-3 lg:text-3xl lg:scale-150">8,332</h1>
                 </div>
             </div>
 
