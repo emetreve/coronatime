@@ -5,7 +5,7 @@
 
             <div class="lg:w-2/5 lg:scale-125">
 
-                <img class="h-14 pt-6" src="{{ asset('images/logo.png') }}" />
+                <img class="h-14 pt-6" src="{{ asset('images/logo.png') }}" alt="logo" />
                 <div class="pt-10 ">
                     <p class="font-bold text-xl">{{ __('signup.welcome') }}</p>
                     <p class="text-gray-400 font-light pt-1">{{ __('signup.welcome_full') }}</p>

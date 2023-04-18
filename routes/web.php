@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\admin\WorldwideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,7 +28,7 @@ Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
 Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [WorldwideController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
 Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->middleware('guest')->name('password.email');
@@ -34,3 +36,7 @@ Route::post('/reset-password', [PasswordController::class, 'reset'])->middleware
 Route::view('/password-notice', 'auth.password-notice')->middleware('guest')->name('password.notice');
 Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/lang/{lang}', [LanguageController::class, 'index'])->name('lang.switch');
