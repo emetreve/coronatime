@@ -31,12 +31,6 @@ class UpdateCovidstats extends Command
 
 		$data = $response->json();
 
-		// Covidstat::updateOrCreate([
-		// 	'id' => $data['code'],
-		// ], [
-		// 	'name'  => $data['name'],
-		// ]);
-
 		if (!empty($data)) {
 			foreach ($data as $item) {
 				Covidstat::updateOrCreate(
