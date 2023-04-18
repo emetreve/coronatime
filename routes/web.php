@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\WorldwideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,3 +38,5 @@ Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPass
 Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/lang/{lang}', [LanguageController::class, 'index'])->name('lang.switch');
