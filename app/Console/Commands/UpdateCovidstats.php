@@ -42,5 +42,23 @@ class UpdateCovidstats extends Command
 				);
 			}
 		}
+
+		$countries = Covidstat::all();
+		foreach ($countries as $country) {
+			$postData = (object) [
+				'code'=> $country->getAttributes()['id'],
+			];
+
+			$response = Http::post('https://devtest.ge/get-country-statistics', $postData);
+
+			$responseData = $response->json();
+
+			$country->fill([
+				'confirmed' => $responseData['confirmed'],
+				'recovered' => $responseData['recovered'],
+				'deaths'    => $responseData['deaths'],
+			]);
+			$country->save();
+		}
 	}
 }
