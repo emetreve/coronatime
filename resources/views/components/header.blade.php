@@ -10,7 +10,13 @@
                 <img class="ml-8 h-[0.9rem] inline lg:hidden" src="{{ asset('images/burger-menu.png') }}"
                     alt="logo" />
                 <p class="hidden lg:inline ml-14 font-semibold text-lg">{{ $userName }}</p>
-                <p class="hidden lg:inline text-lg ml-8 pl-4 py-1 border-l border-gray-100"><a>Log Out</a></p>
+
+                <p onclick="document.querySelector('#logout').submit()"
+                    class="hidden lg:inline text-lg ml-8 pl-4 py-1 border-l border-gray-100 hover:cursor-pointer">
+                    Log Out</p>
+                <form class="hidden" method="POST" action="{{ route('logout') }}" novalidate id="logout">
+                    @csrf
+                </form>
             </div>
         </div>
     </div>

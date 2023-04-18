@@ -35,3 +35,5 @@ Route::post('/reset-password', [PasswordController::class, 'reset'])->middleware
 Route::view('/password-notice', 'auth.password-notice')->middleware('guest')->name('password.notice');
 Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
 Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

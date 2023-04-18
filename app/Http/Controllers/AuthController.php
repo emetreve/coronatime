@@ -53,4 +53,10 @@ class AuthController extends Controller
 
 		session()->regenerate();
 	}
+
+	public function logout()
+	{
+		auth()->logout();
+		return redirect(route('login.index'));
+	}
 }
