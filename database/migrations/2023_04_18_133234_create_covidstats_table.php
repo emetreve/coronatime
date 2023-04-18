@@ -13,7 +13,7 @@ return new class extends Migration {
 		Schema::create('covidstats', function (Blueprint $table) {
 			$table->string('id')->primary();
 			$table->timestamps();
-			$table->json('country')->nullable();
+			$table->json('country');
 			$table->integer('confirmed')->nullable();
 			$table->integer('recovered')->nullable();
 			$table->integer('deaths')->nullable();
