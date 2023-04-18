@@ -54,7 +54,7 @@ class AuthController extends Controller
 		session()->regenerate();
 	}
 
-	public function logout()
+	public function logout(): RedirectResponse
 	{
 		auth()->logout();
 		return redirect(route('login.index'));
