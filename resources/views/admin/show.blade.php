@@ -1,6 +1,6 @@
 <x-layout>
     <div class="min-h-screen flex flex-col">
-        <x-header />
+        <x-header userName="{{ $userName }}" />
         <div class="flex-grow lg:bg-worldwidebg pl-4 lg:pl-32 lg:pt-5">
 
             <h1 class="font-extrabold py-8 text-lg lg:text-3xl">Worldwide Statistics</h1>

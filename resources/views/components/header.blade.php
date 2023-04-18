@@ -1,3 +1,4 @@
+@props(['userName'])
 <div class="border-b border-gray-200">
     <div class="relative lg:mx-28 pb-6">
         <div class="flex items-center justify-between pt-6 px-4 w-full">
@@ -8,7 +9,7 @@
                     alt="language-switched" />
                 <img class="ml-8 h-[0.9rem] inline lg:hidden" src="{{ asset('images/burger-menu.png') }}"
                     alt="logo" />
-                <p class="hidden lg:inline ml-14 font-semibold text-lg">Takeshi K.</p>
+                <p class="hidden lg:inline ml-14 font-semibold text-lg">{{ $userName }}</p>
                 <p class="hidden lg:inline text-lg ml-8 pl-4 py-1 border-l border-gray-100"><a>Log Out</a></p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\WorldwideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EmailVerificationController;
 use App\Http\Controllers\PasswordController;
@@ -26,7 +27,7 @@ Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
 Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
 
-Route::view('/dashboard', 'admin.show')->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [WorldwideController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
 Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->middleware('guest')->name('password.email');
