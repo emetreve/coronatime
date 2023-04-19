@@ -29,9 +29,9 @@
             </div>
 
             <div
-                class="mt-4 lg:h-[40rem] lg:overflow-y-auto lg:mt-10 lg:mx-32 lg:border lg:border-gray-100 lg:rounded-lg">
+                class="mt-4 lg:max-h-[40rem] lg:overflow-y-auto lg:mt-10 lg:mx-32 lg:border lg:border-gray-100 lg:rounded-lg">
                 <table class="w-full">
-                    <thead class="bg-gray-50 text-center text-xs font-semibold lg:text-base lg:text-left">
+                    <thead class="sticky top-0 bg-gray-50 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <p class="inline mr-1">{{ __('dashboard.location') }}</p>
                         </th>
