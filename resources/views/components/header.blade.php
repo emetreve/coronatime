@@ -12,7 +12,8 @@
                 <div class="relative">
                     <img class="ml-2 inline h-[0.4rem] lg:h-[0.46rem] cursor-pointer"
                         src="{{ asset('images/language-switcher.png') }}" id="dropdown-toggle">
-                    <div class="w-28 absolute top-0 mt-8 bg-white rounded-md shadow-lg hidden" id="dropdown-content">
+                    <div class="w-28 absolute top-0 mt-8 bg-white rounded-md shadow-lg hidden right-1"
+                        id="dropdown-content">
                         <ul class="flex flex-col items-center">
 
                             <li class="hover:bg-gray-100 py-2 text-center w-full text-lg"><a
