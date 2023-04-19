@@ -2,8 +2,8 @@
     <div class="min-h-screen flex flex-col">
         <x-header userName="{{ $userName }}" language="{{ $language }}" />
 
-        <div>
-            <div class="flex-grow lg:bg-worldwidebg pl-4 lg:pl-32 lg:pt-5">
+        <div class="lg:bg-worldwidebg">
+            <div class="flex-grow  pl-4 lg:pl-32 lg:pt-5">
 
                 <h1 class="font-extrabold py-8 text-lg lg:text-3xl">{{ __('dashboard.title_countries') }}</h1>
 
@@ -21,15 +21,15 @@
                     <form method="GET" action="#">
                         <img class="h-5 inline" src="{{ asset('images/search.png') }}" />
                         <input type="text" name="search" placeholder="Search by country"
-                            class="border-none focus:outline-none focus:ring-0 placeholder-gray-400 text-sm"
+                            class="border-none focus:outline-none focus:ring-0 lg:bg-worldwidebg placeholder-gray-400 text-sm"
                             value="{{ request('search') }}">
                     </form>
                 </div>
 
             </div>
 
-            <div class="mt-4 lg:mt-10 lg:px-32">
-                <table class="w-full">
+            <div class="mt-4 lg:h-[40rem] lg:overflow-y-auto lg:mt-10 lg:px-32">
+                <table class="w-full border border-gray-100 rounded-lg">
                     <thead class="bg-gray-50 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
                             <p class="inline mr-1">{{ __('dashboard.location') }}</p>
@@ -37,10 +37,10 @@
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
                             {{ __('dashboard.new') }}
                         </th>
-                        <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
+                        <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             {{ __('dashboard.death') }}
                         </th>
-                        <th class="py-5 tracking-wider w-1/4 lg:w-2/5 lg:pl-20">
+                        <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/5 lg:pl-20">
                             {{ __('dashboard.recovered') }}
                         </th>
                     </thead>
