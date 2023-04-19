@@ -13,11 +13,12 @@
                             {{ __('dashboard.tab_wordlwide') }}</p>
                     </a>
 
-                    <p class="inline font-bold lg:text-lg border-b-[0.2rem] pb-2 border-black lg:pb-4">
+                    <p class="inline font-bold lg:text-lg border-b-[0.2rem] pb-2 border-black lg:pb-4 ">
                         {{ __('dashboard.tab_country') }}</p>
                 </div>
 
-                <div class="mt-4 lg:mt-10">
+                <div
+                    class="mt-4 lg:mt-10 lg:w-fit lg:border lg:border-gray-200 lg:pl-5 lg:py-2 lg:rounded-lg border-gray-300">
                     <form method="GET" action="#">
                         <img class="h-5 inline" src="{{ asset('images/search.png') }}" />
                         <input type="text" name="search" placeholder="Search by country"
