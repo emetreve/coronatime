@@ -14,6 +14,15 @@
                 <p class="inline font-bold lg:text-lg border-b-[0.2rem] pb-2 border-black lg:pb-4">
                     {{ __('dashboard.tab_country') }}</p>
             </div>
+
+            <div class="mt-2">
+                <form method="GET" action="#">
+                    <img class="h-5 inline" src="{{ asset('images/search.png') }}" />
+                    <input type="text" name="search" placeholder="Search by country"
+                        class="border-none focus:outline-none focus:ring-0 placeholder-gray-400 text-sm"
+                        value="{{ request('search') }}">
+                </form>
+            </div>
         </div>
     </div>
 </x-layout>
