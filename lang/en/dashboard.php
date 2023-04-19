@@ -11,4 +11,5 @@ return [
 	'georgian'       => 'Georgian',
 	'english'        => 'English',
 	'title_countries'=> 'Countries Statistics',
+	'location'       => 'Location',
 ];

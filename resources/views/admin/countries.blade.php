@@ -32,22 +32,22 @@
                 <table class="w-full">
                     <thead class="bg-gray-50 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
-                            <p class="inline mr-1">Location</p>
+                            <p class="inline mr-1">{{ __('dashboard.location') }}</p>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
-                            New Cases
+                            {{ __('dashboard.new') }}
                         </th>
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
-                            Deaths
+                            {{ __('dashboard.death') }}
                         </th>
                         <th class="py-5 tracking-wider w-1/4 lg:w-2/5 lg:pl-20">
-                            Recovered
+                            {{ __('dashboard.recovered') }}
                         </th>
                     </thead>
 
                     <tbody>
                         <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
-                            <td class="py-3 pl-5 lg:pl-20">Worldwide</td>
+                            <td class="py-3 pl-5 lg:pl-20">{{ __('dashboard.tab_wordlwide') }}</td>
                             <td class="py-3 pl-5 lg:pl-20">{{ $worldwideNew }}</td>
                             <td class="py-3 pl-5 lg:pl-20">{{ $worldwideDeaths }}</td>
                             <td class="py-3 pl-5 lg:pl-20">{{ $worldwideRecovered }}</td>

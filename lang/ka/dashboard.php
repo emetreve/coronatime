@@ -11,4 +11,5 @@ return [
 	'georgian'       => 'ქართული',
 	'english'        => 'ინგლისური',
 	'title_countries'=> 'ქვეყნების სტატისტიკა',
+	'location'       => 'ლოკაცია',
 ];
