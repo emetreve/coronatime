@@ -13,10 +13,13 @@ class CountriesController extends Controller
 	public function show(): View
 	{
 		return view('admin.countries', [
-			'userName'  => Auth::user()->name,
-			'language'  => App::getLocale() == 'ka' ? 'ქართული' : 'English',
-			'covidstats'=> Covidstat::all(),
-			'locale'    => App::getLocale(),
+			'userName'            => Auth::user()->name,
+			'language'            => App::getLocale() == 'ka' ? 'ქართული' : 'English',
+			'worldwideDeaths'     => number_format(Covidstat::sum('deaths')),
+			'worldwideRecovered'  => number_format(Covidstat::sum('recovered')),
+			'worldwideNew'        => number_format(Covidstat::sum('confirmed')),
+			'countries'           => Covidstat::all(),
+			'locale'              => App::getLocale(),
 		]);
 	}
 }
