@@ -16,11 +16,11 @@
                         id="dropdown-content">
                         <ul class="flex flex-col items-center">
 
-                            <li class="hover:bg-gray-100 py-2 text-center w-full text-lg"><a
+                            <li class="hover:bg-gray-100 py-2 text-center w-full text-sm lg:text-lg"><a
                                     href="{{ route('lang.switch', ['lang' => 'en']) }}">{{ __('dashboard.english') }}</a>
                             </li>
 
-                            <li class="hover:bg-gray-100 py-2 text-center w-full text-lg"><a
+                            <li class="hover:bg-gray-100 py-2 text-center w-full text-sm lg:text-lg"><a
                                     href="{{ route('lang.switch', ['lang' => 'ka']) }}">{{ __('dashboard.georgian') }}</a>
                             </li>
 
@@ -28,8 +28,17 @@
                     </div>
                 </div>
 
-                <img class="ml-8 h-[0.9rem] inline lg:hidden" src="{{ asset('images/burger-menu.png') }}"
-                    alt="logo" />
+                <img id="burger-toggle" class="ml-8 h-[0.9rem] inline lg:hidden"
+                    src="{{ asset('images/burger-menu.png') }}" alt="logo" />
+                <div class="px-5 absolute top-5 mt-8 bg-white rounded-md shadow-lg hidden right-1" id="burger-content">
+                    <ul class="flex flex-col items-center">
+                        <li class="hover:bg-gray-100 py-3 text-center w-full text-sm lg:text-lg"
+                            onclick="document.querySelector('#logout').submit()">
+                            {{ __('dashboard.log_out') }}</p>
+                        </li>
+                    </ul>
+                </div>
+
                 <p class="hidden lg:inline ml-14 font-semibold text-lg">{{ $userName }}</p>
 
                 <p onclick="document.querySelector('#logout').submit()"
@@ -49,5 +58,12 @@
 
     dropdownToggle.addEventListener('click', function() {
         dropdownContent.classList.toggle('hidden');
+    });
+
+    var burgerToggle = document.getElementById('burger-toggle');
+    var burgerContent = document.getElementById('burger-content');
+
+    burgerToggle.addEventListener('click', function() {
+        burgerContent.classList.toggle('hidden');
     });
 </script>
