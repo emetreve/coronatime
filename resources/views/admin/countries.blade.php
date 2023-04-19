@@ -17,7 +17,7 @@
                         {{ __('dashboard.tab_country') }}</p>
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 lg:mt-10">
                     <form method="GET" action="#">
                         <img class="h-5 inline" src="{{ asset('images/search.png') }}" />
                         <input type="text" name="search" placeholder="Search by country"
@@ -28,22 +28,39 @@
 
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 lg:mt-10 lg:px-32">
                 <table class="w-full">
-                    <thead class="bg-gray-50">
-                        <th class="text-center py-5 text-xs font-semibold tracking-wider relative">
+                    <thead class="bg-gray-50 text-center text-xs font-semibold lg:text-base lg:text-left">
+                        <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
                             <p class="inline mr-1">Location</p>
                         </th>
-                        <th class="py-5 text-center text-xs font-semibold tracking-wider">
+                        <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
                             New Cases
                         </th>
-                        <th class="py-5 text-center text-xs font-semibold tracking-wider">
+                        <th class="py-5 tracking-wider w-1/4 lg:w-2/12 lg:pl-20">
                             Deaths
                         </th>
-                        <th class="py-5 text-center text-xs font-semibold tracking-wider">
+                        <th class="py-5 tracking-wider w-1/4 lg:w-2/5 lg:pl-20">
                             Recovered
                         </th>
                     </thead>
+
+                    <tbody>
+                        <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
+                            <td class="py-3 pl-5 lg:pl-20">Worldwide</td>
+                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideNew }}</td>
+                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideDeaths }}</td>
+                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideRecovered }}</td>
+                        </tr>
+                        @foreach ($countries as $country)
+                            <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
+                                <td class="py-3 pl-5 lg:pl-20">{{ $country->getTranslation('country', $locale) }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->confirmed) }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->deaths) }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->recovered) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
             </div>
 
