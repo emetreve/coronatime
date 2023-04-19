@@ -10,4 +10,5 @@ return [
 	'log_out'        => 'Log Out',
 	'georgian'       => 'Georgian',
 	'english'        => 'English',
+	'title_countries'=> 'Countries Statistics',
 ];

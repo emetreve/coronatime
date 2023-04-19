@@ -10,4 +10,5 @@ return [
 	'log_out'        => 'გასვლა',
 	'georgian'       => 'ქართული',
 	'english'        => 'ინგლისური',
+	'title_countries'=> 'ქვეყნების სტატისტიკა',
 ];

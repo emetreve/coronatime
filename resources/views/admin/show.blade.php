@@ -8,7 +8,9 @@
             <div class="border-b border-gray-200 pb-2 lg:pb-4 lg:pt-3">
                 <p class="inline mr-5 font-bold border-b-[0.2rem] pb-2 border-black lg:pb-4 lg:text-lg lg:mr-14">
                     {{ __('dashboard.tab_wordlwide') }}</p>
-                <p class="inline lg:text-lg">{{ __('dashboard.tab_country') }}</p>
+                <a href="{{ route('dashboard.countries') }}">
+                    <p class="inline lg:text-lg">{{ __('dashboard.tab_country') }}</p>
+                </a>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-3 pt-6 pr-4 lg:pr-28">
