@@ -16,10 +16,12 @@
                         <ul class="flex flex-col items-center">
 
                             <li class="hover:bg-gray-100 py-2 text-center w-full text-lg"><a
-                                    href="{{ route('lang.switch', ['lang' => 'en']) }}">English</a></li>
+                                    href="{{ route('lang.switch', ['lang' => 'en']) }}">{{ __('dashboard.english') }}</a>
+                            </li>
 
                             <li class="hover:bg-gray-100 py-2 text-center w-full text-lg"><a
-                                    href="{{ route('lang.switch', ['lang' => 'ka']) }}">Georgian</a></li>
+                                    href="{{ route('lang.switch', ['lang' => 'ka']) }}">{{ __('dashboard.georgian') }}</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -31,7 +33,7 @@
 
                 <p onclick="document.querySelector('#logout').submit()"
                     class="hidden lg:inline text-lg ml-8 pl-4 py-1 border-l border-gray-100 hover:cursor-pointer">
-                    Log Out</p>
+                    {{ __('dashboard.log_out') }}</p>
                 <form class="hidden" method="POST" action="{{ route('logout') }}" novalidate id="logout">
                     @csrf
                 </form>
