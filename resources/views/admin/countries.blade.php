@@ -24,6 +24,19 @@
                         <input type="text" name="search" placeholder="{{ __('dashboard.search') }}"
                             class="border-none focus:outline-none focus:ring-0 lg:bg-worldwidebg placeholder-gray-400 text-sm"
                             value="{{ request('search') }}">
+
+                        @if (request('location'))
+                            <input type="hidden" name="location" value="{{ request('location') }}">
+                        @endif
+
+                        @if (request('death'))
+                            <input type="hidden" name="death" value="{{ request('death') }}">
+                        @endif
+
+                        @if (request('recovered'))
+                            <input type="hidden" name="recovered" value="{{ request('recovered') }}">
+                        @endif
+
                     </form>
                 </div>
 
@@ -34,10 +47,14 @@
                 <table class="w-full">
                     <thead class="sticky top-0 bg-gray-100 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            <a class="inline mr-1">{{ __('dashboard.location') }}</a>
+                            <a href="#"
+                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
+                                {{ __('dashboard.location') }}</a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            <a> {{ __('dashboard.new') }} </a>
+                            <a
+                                href="{{ route('dashboard.countries', ['new' => request('new') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}">
+                                {{ __('dashboard.new') }} </a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <a> {{ __('dashboard.death') }}</a>
