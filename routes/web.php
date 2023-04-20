@@ -22,23 +22,30 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'auth.index')->middleware('guest')->name('login.index');
 Route::view('/signup', 'auth.signup')->middleware('guest')->name('signup.index');
 
-Route::post('/signup', [AuthController::class, 'signup'])->middleware('guest')->name('signup');
-Route::post('/', [AuthController::class, 'login'])->middleware('guest')->name('login');
+Route::controller(AuthController::class)->group(function () {
+	Route::post('/signup', 'signup')->middleware('guest')->name('signup');
+	Route::post('/', 'login')->middleware('guest')->name('login');
+	Route::post('/logout', 'logout')->name('logout');
+});
 
 Route::view('/signup/success', 'auth.signup-success')->name('signup.success');
-Route::view('/email/verify', 'auth.verify-email')->middleware('auth')->name('verification.notice');
-Route::get('/email/verify/{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::get('/dashboard', [WorldwideController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/dashboard/countries', [CountriesController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard.countries');
-
-Route::view('/forgot-password', 'auth.forgot-password')->middleware('guest')->name('password.request');
-Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->middleware('guest')->name('password.email');
-Route::post('/reset-password', [PasswordController::class, 'reset'])->middleware('guest')->name('password.update');
-Route::view('/password-notice', 'auth.password-notice')->middleware('guest')->name('password.notice');
-Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->middleware('guest')->name('password.reset');
-Route::view('/password-success', 'auth.password-success')->middleware('guest')->name('password.success');
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
 Route::get('/lang/{lang}', [LanguageController::class, 'index'])->name('lang.switch');
+
+Route::group(['prefix' => 'email/verify'], function () {
+	Route::view('', 'auth.verify-email')->middleware('auth')->name('verification.notice');
+	Route::get('{id}/{hash}', [EmailVerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
+});
+
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
+	Route::get('', [WorldwideController::class, 'show'])->name('dashboard');
+	Route::get('countries', [CountriesController::class, 'show'])->name('dashboard.countries');
+});
+
+Route::group(['middleware' => 'guest'], function () {
+	Route::view('/forgot-password', 'auth.forgot-password')->name('password.request');
+	Route::post('/forgot-password', [PasswordController::class, 'requestChange'])->name('password.email');
+	Route::post('/reset-password', [PasswordController::class, 'reset'])->name('password.update');
+	Route::get('/reset-password/{token}', [PasswordController::class, 'showResetPasswordForm'])->name('password.reset');
+	Route::view('/password-notice', 'auth.password-notice')->name('password.notice');
+	Route::view('/password-success', 'auth.password-success')->name('password.success');
+});
