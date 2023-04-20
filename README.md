@@ -133,7 +133,7 @@ For more information about project standards, take a look at these docs:
 
 ### Database Design Diagram
 
-<img src="readme/assets/drawSQL-diagram.png" height="400" style="position: relative; top: 4px" />
+<img src="readme/assets/drawSQL-diagram.png" style="position: relative; top: 4px; width: 100%;" />
 
 #
 
