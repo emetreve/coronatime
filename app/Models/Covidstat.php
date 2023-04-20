@@ -24,12 +24,9 @@ class Covidstat extends Model
 			);
 		}
 
-		$query->when($filters['country'] ?? false, function ($query, $location) {
-			if ($location == 'desc') {
-				$query->orderby('country->' . app()->getLocale(), 'desc');
-			} else {
-				$query->orderby('country->' . app()->getLocale(), 'asc');
-			}
+		$query->when($filters['country'] ?? false, function ($query, $dirct) {
+			$sortColumn = 'country';
+			$query->orderBy($sortColumn . '->' . app()->getLocale(), $dirct);
 		});
 
 		$query->when($filters['confirmed'] ?? false, function ($query, $dirct) {
