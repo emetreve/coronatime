@@ -21,7 +21,11 @@ module.exports = {
       },
       fontFamily: {
         inter: ['Inter']
-      }
+      },
+      borderWidth: {
+        '3': '0.3125rem',
+        '4': '0.4rem',
+      },
     },
   },
   plugins: [

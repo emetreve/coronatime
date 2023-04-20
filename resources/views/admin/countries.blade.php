@@ -29,12 +29,12 @@
                             <input type="hidden" name="location" value="{{ request('location') }}">
                         @endif
 
-                        @if (request('new'))
-                            <input type="hidden" name="new" value="{{ request('new') }}">
+                        @if (request('confirmed'))
+                            <input type="hidden" name="confirmed" value="{{ request('confirmed') }}">
                         @endif
 
-                        @if (request('death'))
-                            <input type="hidden" name="death" value="{{ request('death') }}">
+                        @if (request('deaths'))
+                            <input type="hidden" name="deaths" value="{{ request('deaths') }}">
                         @endif
 
                         @if (request('recovered'))
@@ -61,17 +61,17 @@
                         <th class=" py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a class="inline" href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['new' => request('new') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['confirmed' => request('confirmed') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.new') }} </a>
-                                <x-sort-indicator query="new" />
+                                <x-sort-indicator query="confirmed" />
                             </div>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['death' => request('death') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['deaths' => request('deaths') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.death') }}</a>
-                                <x-sort-indicator query="death" />
+                                <x-sort-indicator query="deaths" />
                             </div>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/5 lg:pl-20">

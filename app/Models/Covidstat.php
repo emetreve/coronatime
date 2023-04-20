@@ -32,7 +32,7 @@ class Covidstat extends Model
 			}
 		});
 
-		$query->when($filters['new'] ?? false, function ($query, $confirmed) {
+		$query->when($filters['confirmed'] ?? false, function ($query, $confirmed) {
 			if ($confirmed == 'down') {
 				$query->orderby('confirmed', 'desc');
 			} else {
@@ -40,7 +40,7 @@ class Covidstat extends Model
 			}
 		});
 
-		$query->when($filters['death'] ?? false, function ($query, $deaths) {
+		$query->when($filters['deaths'] ?? false, function ($query, $deaths) {
 			if ($deaths == 'down') {
 				$query->orderby('deaths', 'desc');
 			} else {
