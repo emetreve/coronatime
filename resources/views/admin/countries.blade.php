@@ -30,7 +30,7 @@
             </div>
 
             <div
-                class="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-gray-500 mt-4 lg:max-h-[40rem] lg:overflow-y-scroll lg:mt-10 lg:mx-32 lg:border lg:border-gray-100 lg:rounded-lg">
+                class="mt-4 lg:max-h-[40rem] lg:overflow-y-scroll lg:mt-10 lg:mx-32 lg:border lg:border-gray-100 lg:rounded-lg">
                 <table class="w-full">
                     <thead class="sticky top-0 bg-gray-100 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
@@ -47,22 +47,26 @@
                         </th>
                     </thead>
 
-                    <tbody>
-                        <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
-                            <td class="py-3 pl-5 lg:pl-20">{{ __('dashboard.tab_wordlwide') }}</td>
-                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideNew }}</td>
-                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideDeaths }}</td>
-                            <td class="py-3 pl-5 lg:pl-20">{{ $worldwideRecovered }}</td>
-                        </tr>
-                        @foreach ($countries as $country)
+                    <div
+                        class="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-rounded-md scrollbar-thumb-gray-500 lg:max-h-[40rem] lg:overflow-y-scroll lg:mx-32 lg:border lg:border-gray-100 lg:rounded-lg">
+                        <tbody>
                             <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
-                                <td class="py-3 pl-5 lg:pl-20">{{ $country->getTranslation('country', $locale) }}</td>
-                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->confirmed) }}</td>
-                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->deaths) }}</td>
-                                <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->recovered) }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ __('dashboard.tab_wordlwide') }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ $worldwideNew }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ $worldwideDeaths }}</td>
+                                <td class="py-3 pl-5 lg:pl-20">{{ $worldwideRecovered }}</td>
                             </tr>
-                        @endforeach
-                    </tbody>
+                            @foreach ($countries as $country)
+                                <tr class="text-xs text-left border-b border-gray-100 lg:text-base">
+                                    <td class="py-3 pl-5 lg:pl-20">{{ $country->getTranslation('country', $locale) }}
+                                    </td>
+                                    <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->confirmed) }}</td>
+                                    <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->deaths) }}</td>
+                                    <td class="py-3 pl-5 lg:pl-20">{{ number_format($country->recovered) }}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </div>
                 </table>
             </div>
 
