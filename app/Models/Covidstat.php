@@ -25,7 +25,7 @@ class Covidstat extends Model
 		}
 
 		$query->when($filters['location'] ?? false, function ($query, $location) {
-			if ($location == 'down') {
+			if ($location == 'desc') {
 				$query->orderby('country->' . app()->getLocale(), 'desc');
 			} else {
 				$query->orderby('country->' . app()->getLocale(), 'asc');
@@ -33,7 +33,7 @@ class Covidstat extends Model
 		});
 
 		$query->when($filters['confirmed'] ?? false, function ($query, $confirmed) {
-			if ($confirmed == 'down') {
+			if ($confirmed == 'desc') {
 				$query->orderby('confirmed', 'desc');
 			} else {
 				$query->orderby('confirmed', 'asc');
@@ -41,7 +41,7 @@ class Covidstat extends Model
 		});
 
 		$query->when($filters['deaths'] ?? false, function ($query, $deaths) {
-			if ($deaths == 'down') {
+			if ($deaths == 'desc') {
 				$query->orderby('deaths', 'desc');
 			} else {
 				$query->orderby('deaths', 'asc');
@@ -49,7 +49,7 @@ class Covidstat extends Model
 		});
 
 		$query->when($filters['recovered'] ?? false, function ($query, $recovered) {
-			if ($recovered == 'down') {
+			if ($recovered == 'desc') {
 				$query->orderby('recovered', 'desc');
 			} else {
 				$query->orderby('recovered', 'asc');

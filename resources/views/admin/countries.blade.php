@@ -53,7 +53,7 @@
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.location') }}</a>
                                 <x-sort-indicator query="location" />
                             </div>
@@ -61,7 +61,7 @@
                         <th class=" py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a class="inline" href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['confirmed' => request('confirmed') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['confirmed' => request('confirmed') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.new') }} </a>
                                 <x-sort-indicator query="confirmed" />
                             </div>
@@ -69,7 +69,7 @@
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['deaths' => request('deaths') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['deaths' => request('deaths') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.death') }}</a>
                                 <x-sort-indicator query="deaths" />
                             </div>
@@ -77,7 +77,7 @@
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/5 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['recovered' => request('recovered') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['recovered' => request('recovered') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.recovered') }}</a>
                                 <x-sort-indicator query="recovered" />
                             </div>
