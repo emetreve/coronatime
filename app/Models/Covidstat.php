@@ -15,4 +15,45 @@ class Covidstat extends Model
 	public $translatable = ['country'];
 
 	public $guarded = [];
+
+	public function scopeFilter($query, array $filters)
+	{
+		if ($filters['search'] ?? false) {
+			$query->where(
+				fn ($query) => $query->whereRaw("LOWER(JSON_EXTRACT(country, '$." . app()->getLocale() . "')) LIKE ?", ['%' . strtolower(request('search')) . '%'])
+			);
+		}
+
+		$query->when($filters['location'] ?? false, function ($query, $location) {
+			if ($location == 'down') {
+				$query->orderby('country->' . app()->getLocale(), 'desc');
+			} else {
+				$query->orderby('country->' . app()->getLocale(), 'asc');
+			}
+		});
+
+		$query->when($filters['new'] ?? false, function ($query, $confirmed) {
+			if ($confirmed == 'down') {
+				$query->orderby('confirmed', 'desc');
+			} else {
+				$query->orderby('confirmed', 'asc');
+			}
+		});
+
+		$query->when($filters['death'] ?? false, function ($query, $deaths) {
+			if ($deaths == 'down') {
+				$query->orderby('deaths', 'desc');
+			} else {
+				$query->orderby('deaths', 'asc');
+			}
+		});
+
+		$query->when($filters['recovered'] ?? false, function ($query, $recovered) {
+			if ($recovered == 'down') {
+				$query->orderby('recovered', 'desc');
+			} else {
+				$query->orderby('recovered', 'asc');
+			}
+		});
+	}
 }

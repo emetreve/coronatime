@@ -18,7 +18,7 @@ class CountriesController extends Controller
 			'worldwideDeaths'     => number_format(Covidstat::sum('deaths')),
 			'worldwideRecovered'  => number_format(Covidstat::sum('recovered')),
 			'worldwideNew'        => number_format(Covidstat::sum('confirmed')),
-			'countries'           => Covidstat::all(),
+			'countries'           => Covidstat::filter(request(['search', 'location', 'new', 'death', 'recovered']))->get(),
 			'locale'              => App::getLocale(),
 		]);
 	}
