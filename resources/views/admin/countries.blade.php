@@ -25,8 +25,8 @@
                             class="border-none focus:outline-none focus:ring-0 lg:bg-worldwidebg placeholder-gray-400 text-sm"
                             value="{{ request('search') }}">
 
-                        @if (request('location'))
-                            <input type="hidden" name="location" value="{{ request('location') }}">
+                        @if (request('country'))
+                            <input type="hidden" name="country" value="{{ request('country') }}">
                         @endif
 
                         @if (request('confirmed'))
@@ -53,9 +53,9 @@
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <div class="flex justify-center items-center lg:justify-start">
                                 <a href="#"
-                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
+                                    onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['country' => request('country') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
                                     {{ __('dashboard.location') }}</a>
-                                <x-sort-indicator query="location" />
+                                <x-sort-indicator query="country" />
                             </div>
                         </th>
                         <th class=" py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">

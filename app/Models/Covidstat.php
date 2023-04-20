@@ -24,7 +24,7 @@ class Covidstat extends Model
 			);
 		}
 
-		$query->when($filters['location'] ?? false, function ($query, $location) {
+		$query->when($filters['country'] ?? false, function ($query, $location) {
 			if ($location == 'desc') {
 				$query->orderby('country->' . app()->getLocale(), 'desc');
 			} else {
@@ -32,28 +32,19 @@ class Covidstat extends Model
 			}
 		});
 
-		$query->when($filters['confirmed'] ?? false, function ($query, $confirmed) {
-			if ($confirmed == 'desc') {
-				$query->orderby('confirmed', 'desc');
-			} else {
-				$query->orderby('confirmed', 'asc');
-			}
+		$query->when($filters['confirmed'] ?? false, function ($query, $dirct) {
+			$sortColumn = 'confirmed';
+			$query->orderBy($sortColumn, $dirct);
 		});
 
-		$query->when($filters['deaths'] ?? false, function ($query, $deaths) {
-			if ($deaths == 'desc') {
-				$query->orderby('deaths', 'desc');
-			} else {
-				$query->orderby('deaths', 'asc');
-			}
+		$query->when($filters['deaths'] ?? false, function ($query, $dirct) {
+			$sortColumn = 'deaths';
+			$query->orderBy($sortColumn, $dirct);
 		});
 
-		$query->when($filters['recovered'] ?? false, function ($query, $recovered) {
-			if ($recovered == 'desc') {
-				$query->orderby('recovered', 'desc');
-			} else {
-				$query->orderby('recovered', 'asc');
-			}
+		$query->when($filters['recovered'] ?? false, function ($query, $dirct) {
+			$sortColumn = 'recovered';
+			$query->orderBy($sortColumn, $dirct);
 		});
 	}
 }
