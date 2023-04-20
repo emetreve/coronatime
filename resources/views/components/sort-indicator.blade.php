@@ -2,7 +2,7 @@
 <div class="flex flex-col justify-center items-center ml-1 lg:ml-2">
     <div
         class="inline w-0 h-0 
-            {{ request($query) == 'up' ? 'border-b-gray-700' : 'border-b-gray-400' }}
+            {{ request($query) == 'asc' ? 'border-b-gray-700' : 'border-b-gray-400' }}
             border-l-3 border-l-transparent
             border-b-3
             border-r-3 border-r-transparent mb-[0.1rem] lg:mb-[0.2rem]
@@ -15,7 +15,7 @@
 
     <div
         class="w-0 h-0 
-            {{ request($query) == 'down' ? 'border-t-gray-700' : 'border-t-gray-400' }}
+            {{ request($query) == 'desc' ? 'border-t-gray-700' : 'border-t-gray-400' }}
             border-l-3 border-l-transparent
             border-t-3 
             border-r-3 border-r-transparent
