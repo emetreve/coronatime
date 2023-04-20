@@ -21,7 +21,7 @@
                     class="mt-4 lg:mt-10 lg:w-fit lg:border lg:border-gray-200 lg:pl-5 lg:py-2 lg:rounded-lg border-gray-300">
                     <form method="GET" action="#">
                         <img class="h-5 inline" src="{{ asset('images/search.png') }}" />
-                        <input type="text" name="search" placeholder="Search by country"
+                        <input type="text" name="search" placeholder="{{ __('dashboard.search') }}"
                             class="border-none focus:outline-none focus:ring-0 lg:bg-worldwidebg placeholder-gray-400 text-sm"
                             value="{{ request('search') }}">
                     </form>
@@ -34,16 +34,16 @@
                 <table class="w-full">
                     <thead class="sticky top-0 bg-gray-100 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            <p class="inline mr-1">{{ __('dashboard.location') }}</p>
+                            <a class="inline mr-1">{{ __('dashboard.location') }}</a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            {{ __('dashboard.new') }}
+                            <a> {{ __('dashboard.new') }} </a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            {{ __('dashboard.death') }}
+                            <a> {{ __('dashboard.death') }}</a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/5 lg:pl-20">
-                            {{ __('dashboard.recovered') }}
+                            <a> {{ __('dashboard.recovered') }}</a>
                         </th>
                     </thead>
 
