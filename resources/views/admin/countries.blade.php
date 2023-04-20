@@ -29,6 +29,10 @@
                             <input type="hidden" name="location" value="{{ request('location') }}">
                         @endif
 
+                        @if (request('new'))
+                            <input type="hidden" name="new" value="{{ request('new') }}">
+                        @endif
+
                         @if (request('death'))
                             <input type="hidden" name="death" value="{{ request('death') }}">
                         @endif
@@ -48,19 +52,23 @@
                     <thead class="sticky top-0 bg-gray-100 text-center text-xs font-semibold lg:text-base lg:text-left">
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
                             <a href="#"
-                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}' + location.hash;">
+                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['location' => request('location') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
                                 {{ __('dashboard.location') }}</a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            <a
-                                href="{{ route('dashboard.countries', ['new' => request('new') == 'desc' ? 'asc' : 'desc', 'search' => request('search')]) }}">
+                            <a href="#"
+                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['new' => request('new') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
                                 {{ __('dashboard.new') }} </a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/12 lg:pl-20">
-                            <a> {{ __('dashboard.death') }}</a>
+                            <a href="#"
+                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['death' => request('death') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                {{ __('dashboard.death') }}</a>
                         </th>
                         <th class="py-5 tracking-wider w-1/4 break-all lg:w-2/5 lg:pl-20">
-                            <a> {{ __('dashboard.recovered') }}</a>
+                            <a href="#"
+                                onclick="event.preventDefault(); window.location.href = '{{ route('dashboard.countries', ['recovered' => request('recovered') == 'down' ? 'up' : 'down', 'search' => request('search')]) }}' + location.hash;">
+                                {{ __('dashboard.recovered') }}</a>
                         </th>
                     </thead>
 
