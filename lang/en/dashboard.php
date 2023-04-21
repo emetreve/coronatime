@@ -12,4 +12,5 @@ return [
 	'english'        => 'English',
 	'title_countries'=> 'Countries Statistics',
 	'location'       => 'Location',
+	'search'         => 'Search by country',
 ];

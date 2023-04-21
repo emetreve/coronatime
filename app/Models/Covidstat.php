@@ -15,4 +15,19 @@ class Covidstat extends Model
 	public $translatable = ['country'];
 
 	public $guarded = [];
+
+	public function scopeFilter($query, array $filters)
+	{
+		foreach ($filters as $column => $dirct) {
+			if ($column === 'search') {
+				$query->where(
+					fn ($query) => $query->whereRaw("LOWER(JSON_EXTRACT(country, '$." . app()->getLocale() . "')) LIKE ?", ['%' . strtolower(request('search')) . '%'])
+				);
+			} elseif ($column === 'country') {
+				$query->orderBy($column . '->' . app()->getLocale(), $dirct);
+			} else {
+				$query->orderBy($column, $dirct);
+			}
+		}
+	}
 }

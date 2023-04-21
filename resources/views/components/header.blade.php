@@ -28,15 +28,15 @@
                     </div>
                 </div>
 
-                <img id="burger-toggle" class="ml-8 h-[0.9rem] inline lg:hidden"
+                <img id="burger-toggle" class="ml-8 h-[0.9rem] inline hover:cursor-pointer lg:hidden"
                     src="{{ asset('images/burger-menu.png') }}" alt="logo" />
-                <div class="px-5 absolute top-5 mt-8 bg-white rounded-md shadow-lg hidden right-1" id="burger-content">
+                <div class="absolute top-5 mt-8 bg-white rounded-md shadow-lg hidden right-1" id="burger-content">
                     <ul class="flex flex-col items-center">
-                        <li class="hover:bg-gray-100 pt-4 text-center w-full text-sm font-semibold lg:text-lg"
+                        <li class="px-5 py-2 text-center w-full text-sm font-semibold lg:text-lg"
                             onclick="document.querySelector('#logout').submit()">
                             {{ $userName }}</p>
                         </li>
-                        <li class="hover:bg-gray-100 py-3 text-center w-full text-sm lg:text-lg"
+                        <li class="hover:bg-gray-100 px-5 py-2 hover:cursor-pointer text-center w-full text-sm lg:text-lg"
                             onclick="document.querySelector('#logout').submit()">
                             {{ __('dashboard.log_out') }}</p>
                         </li>

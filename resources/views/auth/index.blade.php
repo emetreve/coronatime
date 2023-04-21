@@ -7,7 +7,7 @@
                 <img class="h-14 pt-6" src="{{ asset('images/logo.png') }}" alt="logo" />
                 <div class="pt-10 ">
                     <p class="font-bold text-xl">{{ __('login.welcome') }}</p>
-                    <p class="text-gray-400 font-light pt-1">{{ __('login.welcome_full') }}</p>
+                    <p class="text-gray-400 pt-1">{{ __('login.welcome_full') }}</p>
 
                 </div>
 
