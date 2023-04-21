@@ -10,7 +10,7 @@ return new class extends Migration {
 	 */
 	public function up(): void
 	{
-		Schema::create('covidstats', function (Blueprint $table) {
+		Schema::create('covidstatistics', function (Blueprint $table) {
 			$table->string('id')->primary();
 			$table->timestamps();
 			$table->json('country');
@@ -25,6 +25,6 @@ return new class extends Migration {
 	 */
 	public function down(): void
 	{
-		Schema::dropIfExists('covidstats');
+		Schema::dropIfExists('covidstatistics');
 	}
 };

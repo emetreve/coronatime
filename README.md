@@ -75,10 +75,10 @@ Migration is a fairly simple process, just execute:
 php artisan migrate
 ```
 
-And populate the covidstats table:
+And populate the covidstatistics table:
 
 ```sh
-php artisan coronatime:update-covidstats
+php artisan coronatime:update-covidstatistics
 ```
 
 ### Development

@@ -32,12 +32,11 @@
                     src="{{ asset('images/burger-menu.png') }}" alt="logo" />
                 <div class="absolute top-5 mt-8 bg-white rounded-md shadow-lg hidden right-1" id="burger-content">
                     <ul class="flex flex-col items-center">
-                        <li class="px-5 py-2 text-center w-full text-sm font-semibold lg:text-lg"
-                            onclick="document.querySelector('#logout').submit()">
+                        <li class="px-5 py-2 text-center w-full text-sm font-semibold lg:text-lg">
                             {{ $userName }}</p>
                         </li>
                         <li class="hover:bg-gray-100 px-5 py-2 hover:cursor-pointer text-center w-full text-sm lg:text-lg"
-                            onclick="document.querySelector('#logout').submit()">
+                            onclick="logout()">
                             {{ __('dashboard.log_out') }}</p>
                         </li>
                     </ul>
@@ -45,7 +44,7 @@
 
                 <p class="hidden lg:inline ml-14 font-semibold text-lg">{{ $userName }}</p>
 
-                <p onclick="document.querySelector('#logout').submit()"
+                <p onclick="logout()"
                     class="hidden lg:inline text-lg ml-8 pl-4 py-1 border-l border-gray-100 hover:cursor-pointer">
                     {{ __('dashboard.log_out') }}</p>
                 <form class="hidden" method="POST" action="{{ route('logout') }}" novalidate id="logout">
@@ -70,4 +69,8 @@
     burgerToggle.addEventListener('click', function() {
         burgerContent.classList.toggle('hidden');
     });
+
+    function logout() {
+        document.querySelector('#logout').submit();
+    }
 </script>
