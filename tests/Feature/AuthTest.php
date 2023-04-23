@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Http\Middleware\VerifyCsrfToken;
 
 class AuthTest extends TestCase
 {
@@ -34,10 +33,9 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_errors_if_inputs_are_not_provided(): void
 	{
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username' => '',
 			'password' => '',
-			'_token'   => csrf_token(),
 		]);
 		$response->assertSessionHasErrors([
 			'username',
@@ -47,10 +45,9 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_username_error_if_we_dont_give_username_input(): void
 	{
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username' => '',
 			'password' => 'pass',
-			'_token'   => csrf_token(),
 		]);
 		$response->assertSessionHasErrors([
 			'username',
@@ -59,10 +56,9 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_password_error_if_we_dont_give_password_input(): void
 	{
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username' => 'user',
 			'password' => '',
-			'_token'   => csrf_token(),
 		]);
 		$response->assertSessionHasErrors([
 			'password',
@@ -71,10 +67,9 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_incorrect_credentials_error_if_such_user_does_not_exist(): void
 	{
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username' => 'user',
 			'password' => 'pass',
-			'_token'   => csrf_token(),
 		]);
 
 		$response->assertSessionHasErrors([
@@ -90,7 +85,7 @@ class AuthTest extends TestCase
 
 	public function test_user_can_successfully_log_out()
 	{
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->actingAs($this->user)->post(route('logout'));
+		$response = $this->actingAs($this->user)->post(route('logout'));
 		$response->assertRedirect(route('login.index'));
 	}
 
@@ -103,7 +98,7 @@ class AuthTest extends TestCase
 			'email_verified_at' => null,
 		]);
 
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username'=> $unverifiedUser->name,
 			'password'=> $password,
 		]);
@@ -118,7 +113,7 @@ class AuthTest extends TestCase
 			'password'=> bcrypt($password),
 		]);
 
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+		$response = $this->post(route('login'), [
 			'username'=> $user->name,
 			'password'=> $password,
 		]);

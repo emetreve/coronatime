@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Http\Middleware\VerifyCsrfToken;
 
 class SignupTest extends TestCase
 {
@@ -26,7 +25,7 @@ class SignupTest extends TestCase
 			'password_confirmation'=> 'pass',
 			'_token'               => csrf_token(),
 		];
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('signup'), $request);
+		$response = $this->post(route('signup'), $request);
 		$response->assertRedirect(route('verification.notice'));
 	}
 }
