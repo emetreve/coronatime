@@ -46,7 +46,7 @@ class ResetPasswordTest extends TestCase
 	public function test_password_reset_should_redirect_to_password_notice_page_if_correct_user_email_was_provided(): void
 	{
 		$email = 'valid@redberry.ge';
-		$user = User::factory()->create(['email'=>$email]);
+		User::factory()->create(['email'=>$email]);
 
 		$response = $this->post(route('password.email'));
 		$response = $this->post(route('password.email'), [

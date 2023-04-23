@@ -2,19 +2,34 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Models\User;
+use Illuminate\Support\Facades\URL;
 use Tests\TestCase;
 
 class EmailValidationTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_example(): void
-    {
-        $response = $this->get('/');
+	public function test_signup_success_confirmation_page_is_accessible(): void
+	{
+		$response = $this->get(route('signup.success'));
+		$response->assertSuccessful()->assertStatus(200);
+		$response->assertViewIs('auth.signup-success');
+	}
 
-        $response->assertStatus(200);
-    }
+	public function test_after_clicking_verify_email_cta_it_should_redirect_to_sugnup_success_page(): void
+	{
+		$user = User::factory()->create(['email_verified_at' => null]);
+
+		$response = $this->actingAs($user)->get(route('verification.notice'));
+
+		$verificationUrl = URL::temporarySignedRoute(
+			'verification.verify',
+			now()->addMinutes(60),
+			['id' => $user->id, 'hash' => sha1($user->getEmailForVerification())]
+		);
+
+		$response = $this->get($verificationUrl);
+
+		$response->assertRedirect(route('signup.success'));
+		$this->assertNotNull($user->fresh()->email_verified_at);
+	}
 }
