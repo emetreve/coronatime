@@ -80,7 +80,7 @@ class AuthTest extends TestCase
 		]);
 	}
 
-	public function test_auth_should_redirect_do_dashboard_after_successful_login(): void
+	public function test_auth_should_show_dashboard_if_user_is_authenticated(): void
 	{
 		$response = $this->actingAs($this->user)->get(route('dashboard'));
 		$response->assertSuccessful();
@@ -119,5 +119,20 @@ class AuthTest extends TestCase
 			'password'=> $password,
 		]);
 		$response->assertRedirect(route('verification.notice'));
+	}
+
+	public function test_auth_should_redirect_to_dashboard_when_logging_in_successfully(): void
+	{
+		$password = 'password';
+
+		$user = User::factory()->create([
+			'password'=> bcrypt($password),
+		]);
+
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+			'username'=> $user->name,
+			'password'=> $password,
+		]);
+		$response->assertRedirect(route('dashboard'));
 	}
 }
