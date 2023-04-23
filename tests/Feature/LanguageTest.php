@@ -7,7 +7,7 @@ use Tests\TestCase;
 
 class LanguageTest extends TestCase
 {
-	public function test_locale_middleware_changes_app_locale()
+	public function test_locale_middleware_changes_app_locale(): void
 	{
 		$appLocale = 'ka';
 
@@ -17,7 +17,7 @@ class LanguageTest extends TestCase
 		$this->assertEquals($appLocale, App::getLocale());
 	}
 
-	public function test_language_controller_can_set_language_and_redirect_back()
+	public function test_language_controller_can_set_language_and_redirect_back(): void
 	{
 		$lang = 'ka';
 

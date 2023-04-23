@@ -98,7 +98,7 @@ class AuthTest extends TestCase
 		$response->assertRedirect(route('login.index'));
 	}
 
-	public function test_signup_should_create_user_and_redirect_to_verification_notice()
+	public function test_signup_should_create_user_and_redirect_to_verification_notice(): void
 	{
 		$request = [
 			'name'                 => 'user',
@@ -111,7 +111,7 @@ class AuthTest extends TestCase
 		$response->assertRedirect(route('verification.notice'));
 	}
 
-	public function test_login_should_redirect_to_verification_notice_if_user_not_verified()
+	public function test_login_should_redirect_to_verification_notice_if_user_not_verified(): void
 	{
 		$password = 'password';
 
