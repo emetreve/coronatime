@@ -28,6 +28,7 @@
             <file>./app/Http/Middleware/TrustProxies.php</file>
             <file>./app/Http/Middleware/ValidateSignature.php</file>
             <file>./app/Http/Middleware/VerifyCsrfToken.php</file>
+            <file>./app/Http/Middleware/Authenticate.php</file>
             <file>./app/Providers/AppServiceProvider.php</file>
             <file>./app/Providers/BroadcastServiceProvider.php</file>
             <file>./app/Providers/EventServiceProvider.php</file>
