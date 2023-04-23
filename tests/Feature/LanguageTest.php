@@ -17,7 +17,7 @@ class LanguageTest extends TestCase
 		$this->assertEquals($appLocale, App::getLocale());
 	}
 
-	public function test_language_controller_can_set_language_and_redirect_back(): void
+	public function test_language_controller_can_set_language(): void
 	{
 		$lang = 'ka';
 
