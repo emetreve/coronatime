@@ -104,4 +104,20 @@ class AuthTest extends TestCase
 		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('signup'), $request);
 		$response->assertRedirect(route('verification.notice'));
 	}
+
+	public function test_login_should_redirect_to_verification_notice_if_user_not_verified()
+	{
+		$password = 'password';
+
+		$unverifiedUser = User::factory()->create([
+			'password'          => bcrypt($password),
+			'email_verified_at' => null,
+		]);
+
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
+			'username'=> $unverifiedUser->name,
+			'password'=> $password,
+		]);
+		$response->assertRedirect(route('verification.notice'));
+	}
 }
