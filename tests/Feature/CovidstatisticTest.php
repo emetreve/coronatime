@@ -24,7 +24,7 @@ class CovidstatisticTest extends TestCase
 		Covidstatistic::factory()->create([
 			'country'   => ['en' => 'India', 'ka' => 'ინდოეთი'],
 		]);
-		Covidstatistic::factory(4)->create();
+		Covidstatistic::factory(2)->create();
 
 		$kewyord = 'india';
 

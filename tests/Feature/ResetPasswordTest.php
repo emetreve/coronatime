@@ -4,9 +4,13 @@ namespace Tests\Feature;
 
 use App\Models\User;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Password;
 
 class ResetPasswordTest extends TestCase
 {
+	use RefreshDatabase;
+
 	public function test_forgot_password_page_is_accessible(): void
 	{
 		$response = $this->get(route('password.request'));
@@ -49,5 +53,15 @@ class ResetPasswordTest extends TestCase
 			'_token'   => csrf_token(),
 		]);
 		$response->assertRedirect(route('password.notice'));
+	}
+
+	public function test_reset_password_page_is_accessible(): void
+	{
+		$user = User::factory()->create();
+		$token = Password::createToken($user);
+
+		$response = $this->get(route('password.reset', $token));
+		$response->assertSuccessful()->assertStatus(200);
+		$response->assertViewIs('auth.reset-password');
 	}
 }
