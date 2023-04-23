@@ -6,6 +6,7 @@ use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Password;
+use App\Http\Middleware\VerifyCsrfToken;
 
 class ResetPasswordTest extends TestCase
 {
@@ -63,5 +64,24 @@ class ResetPasswordTest extends TestCase
 		$response = $this->get(route('password.reset', $token));
 		$response->assertSuccessful()->assertStatus(200);
 		$response->assertViewIs('auth.reset-password');
+	}
+
+	public function test_password_update_request_should_redirect_to_success_page_if_all_inputs_are_given(): void
+	{
+		$user = User::factory()->create();
+		$token = Password::createToken($user);
+		$password = 'password';
+
+		$requestData = [
+			'email'                 => $user->email,
+			'password'              => $password,
+			'password_confirmation' => $password,
+			'token'                 => $token,
+			'_token'                => csrf_token(),
+		];
+
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('password.update'), $requestData);
+
+		$response->assertRedirect(route('password.success'));
 	}
 }
