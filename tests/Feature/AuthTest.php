@@ -34,8 +34,7 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_errors_if_inputs_are_not_provided(): void
 	{
-		$response = $this->post(route('login'));
-		$response = $this->post(route('login'), [
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
 			'username' => '',
 			'password' => '',
 			'_token'   => csrf_token(),
@@ -48,8 +47,7 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_username_error_if_we_dont_give_username_input(): void
 	{
-		$response = $this->post(route('login'));
-		$response = $this->post(route('login'), [
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
 			'username' => '',
 			'password' => 'pass',
 			'_token'   => csrf_token(),
@@ -61,8 +59,7 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_password_error_if_we_dont_give_password_input(): void
 	{
-		$response = $this->post(route('login'));
-		$response = $this->post(route('login'), [
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
 			'username' => 'user',
 			'password' => '',
 			'_token'   => csrf_token(),
@@ -74,8 +71,7 @@ class AuthTest extends TestCase
 
 	public function test_auth_should_give_incorrect_credentials_error_if_such_user_does_not_exist(): void
 	{
-		$response = $this->post(route('login'));
-		$response = $this->post(route('login'), [
+		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('login'), [
 			'username' => 'user',
 			'password' => 'pass',
 			'_token'   => csrf_token(),
@@ -97,7 +93,6 @@ class AuthTest extends TestCase
 		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->actingAs($this->user)->post(route('logout'));
 		$response->assertRedirect(route('login.index'));
 	}
-
 
 	public function test_login_should_redirect_to_verification_notice_if_user_not_verified(): void
 	{
@@ -129,5 +124,4 @@ class AuthTest extends TestCase
 		]);
 		$response->assertRedirect(route('dashboard'));
 	}
-
 }
