@@ -141,4 +141,18 @@ class AuthTest extends TestCase
 		]);
 		$response->assertRedirect(route('dashboard'));
 	}
+
+	public function test_signup_success_confirmation_page_is_accessible(): void
+	{
+		$response = $this->get(route('signup.success'));
+		$response->assertSuccessful()->assertStatus(200);
+		$response->assertViewIs('auth.signup-success');
+	}
+
+	public function test_signup_page_is_accessible(): void
+	{
+		$response = $this->get(route('signup.index'));
+		$response->assertSuccessful()->assertStatus(200);
+		$response->assertViewIs('auth.signup');
+	}
 }
