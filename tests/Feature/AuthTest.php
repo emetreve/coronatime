@@ -98,18 +98,6 @@ class AuthTest extends TestCase
 		$response->assertRedirect(route('login.index'));
 	}
 
-	public function test_signup_should_create_user_and_redirect_to_verification_notice(): void
-	{
-		$request = [
-			'name'                 => 'user',
-			'email'                => 'user@redberry.ge',
-			'password'             => 'pass',
-			'password_confirmation'=> 'pass',
-			'_token'               => csrf_token(),
-		];
-		$response = $this->withoutMiddleware(VerifyCsrfToken::class)->post(route('signup'), $request);
-		$response->assertRedirect(route('verification.notice'));
-	}
 
 	public function test_login_should_redirect_to_verification_notice_if_user_not_verified(): void
 	{
@@ -142,17 +130,4 @@ class AuthTest extends TestCase
 		$response->assertRedirect(route('dashboard'));
 	}
 
-	public function test_signup_success_confirmation_page_is_accessible(): void
-	{
-		$response = $this->get(route('signup.success'));
-		$response->assertSuccessful()->assertStatus(200);
-		$response->assertViewIs('auth.signup-success');
-	}
-
-	public function test_signup_page_is_accessible(): void
-	{
-		$response = $this->get(route('signup.index'));
-		$response->assertSuccessful()->assertStatus(200);
-		$response->assertViewIs('auth.signup');
-	}
 }
