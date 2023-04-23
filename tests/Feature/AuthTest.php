@@ -26,6 +26,12 @@ class AuthTest extends TestCase
 		$response->assertViewIs('auth.index');
 	}
 
+	public function test_authenticated_user_redirects_to_dashboard_when_trying_to_access_login_page()
+	{
+		$response = $this->actingAs($this->user)->get(route('login.index'));
+		$response->assertRedirect(route('dashboard'));
+	}
+
 	public function test_auth_should_give_errors_if_inputs_are_not_provided(): void
 	{
 		$response = $this->post(route('login'));
