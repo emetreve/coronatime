@@ -8,8 +8,6 @@ return [
 	'recovered'      => 'გამოჯანმრთელება',
 	'death'          => 'მსხვერპლი',
 	'log_out'        => 'გასვლა',
-	'georgian'       => 'ქართული',
-	'english'        => 'ინგლისური',
 	'title_countries'=> 'ქვეყნების სტატისტიკა',
 	'location'       => 'ლოკაცია',
 	'search'         => 'ქვეყნის ძებნა',

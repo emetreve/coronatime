@@ -8,8 +8,6 @@ return [
 	'recovered'      => 'Recovered',
 	'death'          => 'Death',
 	'log_out'        => 'Log Out',
-	'georgian'       => 'Georgian',
-	'english'        => 'English',
 	'title_countries'=> 'Countries Statistics',
 	'location'       => 'Location',
 	'search'         => 'Search by country',

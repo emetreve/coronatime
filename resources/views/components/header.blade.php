@@ -17,11 +17,11 @@
                             <ul class="flex flex-col items-center">
 
                                 <li class="hover:bg-gray-100 py-2 text-center w-full text-sm lg:text-lg"><a
-                                        href="{{ route('lang.switch', ['lang' => 'en']) }}">{{ __('dashboard.english') }}</a>
+                                        href="{{ route('lang.switch', ['lang' => 'en']) }}">English</a>
                                 </li>
 
                                 <li class="hover:bg-gray-100 py-2 text-center w-full text-sm lg:text-lg"><a
-                                        href="{{ route('lang.switch', ['lang' => 'ka']) }}">{{ __('dashboard.georgian') }}</a>
+                                        href="{{ route('lang.switch', ['lang' => 'ka']) }}">ქართული</a>
                                 </li>
 
                             </ul>
