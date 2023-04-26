@@ -77,7 +77,7 @@
                             </div>
                         </div>
 
-                        <div class="mt-4">
+                        <div class="mt-4 -mb-1">
                             <label class="block font-bold text-xs"
                                 for="password_confirmation">{{ __('inputs.repeat_password') }}</label>
                             <input
