@@ -8,12 +8,12 @@
             </div>
 
             <form novalidate method="POST" action="{{ route('password.update') }}"
-                class="px-4 pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
+                class=" pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
                 @csrf
 
                 <input hidden name="email" id="email" value="{{ $email }}" />
 
-                <div class="mt-4">
+                <div class="mt-4 px-4">
                     <label class="block font-bold text-xs" for="password">{{ __('inputs.password_new') }}</label>
                     <input
                         class="{{ $errors->has('password') ? 'border-red-600' : (old('password') ? 'border-validgreen' : 'border-gray-200') }} block mt-1 border py-4 px-5 text-s rounded-lg w-full placeholder-gray-400 font-light"
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4 mb-4">
+                <div class="mt-4 mb-4 px-4">
                     <label class="block font-bold text-xs"
                         for="password_confirmation">{{ __('inputs.repeat_password') }}</label>
                     <input
@@ -49,7 +49,10 @@
                 </div>
 
                 <input type="hidden" name="token" value="{{ $token }}">
-                <x-button text="{{ __('password-reset.reset') }}" />
+
+                <div class="px-4 absolute bottom-5 w-full lg:static">
+                    <x-button text="{{ __('password-reset.reset') }}" />
+                </div>
 
             </form>
 
