@@ -8,9 +8,9 @@
             </div>
 
             <form novalidate method="POST" action="{{ route('password.email') }}"
-                class="px-4 pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
+                class="pt-5 lg:w-1/4 lg:mx-auto lg:pt-10">
                 @csrf
-                <div class="mt-4">
+                <div class="mt-4 px-4 ">
                     <label class="relative block font-bold text-xs" for="email">{{ __('inputs.email') }}
                         @if (!$errors->has('email') && old('email'))
                             <img class="absolute top-10 right-5 h-4" src="{{ asset('images/valid.png') }}" />
@@ -29,8 +29,9 @@
                         @enderror
                     </div>
                 </div>
-
-                <x-button text="{{ __('password-reset.reset') }}" />
+                <div class="px-4 absolute bottom-5 w-full lg:static">
+                    <x-button text="{{ __('password-reset.reset') }}" />
+                </div>
             </form>
 
 
