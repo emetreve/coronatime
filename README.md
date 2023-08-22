@@ -1,5 +1,4 @@
 <div style="display:flex; align-items: center">
-  <img src="readme/assets/redberrylogo.svg" alt="logo" width="220" style="margin-right: 20px" />
   <h1 style="position:relative; top: -6px" >Coronatime App</h1>
 </div>
 
