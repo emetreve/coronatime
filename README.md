@@ -1,5 +1,5 @@
 <div style="display:flex; align-items: center">
-  <h1 style="position:relative; top: -6px" >Coronatime App</h1>
+  <h1 style="position:relative; top: -6px" >Coronatime</h1>
 </div>
 
 Coronatime is a web application that provides verified users with access to global and country-level Coronavirus statistics. Once registered and verified, users can browse and interact with the data to better understand the pandemic's impact. The platform offers a comprehensive and easy-to-use interface, enabling users to view key statistics and trends, as well as to filter and sort the data based on their preferences.
